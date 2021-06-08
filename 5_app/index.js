@@ -4,6 +4,11 @@ var $start = document.querySelector('#start')
 var $game = document.querySelector('#game')
 var $time = document.querySelector('#time')
 
+var $result = document.querySelector('#result')
+
+var $time_header = document.querySelector('#time-header')
+var $result_header = document.querySelector('#result-header')
+
 var score = 0
 var isGameStarted = false
 
@@ -32,6 +37,12 @@ $game.addEventListener('click',handleBoxClick)
 */
 
 function startGame() {
+
+    score = 0
+    $time_header.classList.remove('hide')
+    $result_header.classList.add('hide')
+    setGameTime()
+
     // взводим флаг, что игра стартанула
     isGameStarted = true;
 
@@ -63,6 +74,26 @@ function startGame() {
 
 function endGame(){
     isGameStarted = false
+    setGameScore()
+
+    // вывод результата
+    $start.classList.remove('hide')
+    $game.innerHTML = ''        // удаляем боксы
+    $game.style.backgroundColor = '#ccc'
+
+    $time_header.classList.add('hide')
+    $result_header.classList.remove('hide')
+}
+
+
+function setGameTime () {
+    var time = 5
+    $time.textContent = (time - 0.1).toFixed(1)
+}
+
+
+function setGameScore () {
+    $result.textContent = score.toString()
 }
 
 
