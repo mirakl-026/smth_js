@@ -9,11 +9,28 @@ var $result = document.querySelector('#result')
 var $time_header = document.querySelector('#time-header')
 var $result_header = document.querySelector('#result-header')
 
+var $gameTime = document.querySelector('#game-time')
+
 var score = 0
 var isGameStarted = false
 
 $start.addEventListener('click', startGame)
 $game.addEventListener('click',handleBoxClick)
+$gameTime.addEventListener('input',setGameTime)
+
+
+
+
+
+function show($el) {
+    $el.classList.remove('hide')
+}
+
+function hide ($el) {
+    $el.classList.add('hide')
+}
+
+
 
 /*
     После нажатия на кнопку вызывается функция start Game
@@ -39,15 +56,15 @@ $game.addEventListener('click',handleBoxClick)
 function startGame() {
 
     score = 0
-    $time_header.classList.remove('hide')
-    $result_header.classList.add('hide')
     setGameTime()
+
+    $gameTime.setAttribute('disabled','true')
 
     // взводим флаг, что игра стартанула
     isGameStarted = true;
 
     // после нажанитя кнопки старт - кнопка должна пропасть
-    $start.classList.add('hide')    // он есть в CSS
+    hide($start) // он есть в CSS
 
     // красим поле в белый цвет
     $game.style.backgroundColor = 'white'
@@ -72,23 +89,28 @@ function startGame() {
 
 
 
+
 function endGame(){
     isGameStarted = false
     setGameScore()
 
     // вывод результата
-    $start.classList.remove('hide')
+    show($start)
     $game.innerHTML = ''        // удаляем боксы
     $game.style.backgroundColor = '#ccc'
 
-    $time_header.classList.add('hide')
-    $result_header.classList.remove('hide')
+    hide($time_header)
+    show($result_header)
+    
+    $gameTime.removeAttribute('disabled')
 }
 
 
 function setGameTime () {
-    var time = 5
-    $time.textContent = (time - 0.1).toFixed(1)
+    var time = +$gameTime.value
+    $time.textContent = (time).toFixed(1)
+    show($time_header)
+    hide($result_header)
 }
 
 
