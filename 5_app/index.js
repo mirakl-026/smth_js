@@ -2,15 +2,22 @@
 // есл через QuerySelector - $ в названии
 var $start = document.querySelector('#start')
 var $game = document.querySelector('#game')
+var $time = document.querySelector('#time')
 
 var score = 0
+var isGameStarted = false
 
 $start.addEventListener('click', startGame)
 $game.addEventListener('click',handleBoxClick)
 
 /*
-    После нажатия на кнопку start - кнопка хайдится
-    поле (game) становится белым
+    После нажатия на кнопку вызывается функция start Game
+    - взводится флаг isGameStarted
+    - start - кнопка хайдится
+    - поле (game) становится белым
+    - запускается внутренний таймер браузера и ему передаётся обработчик
+        который проверяет поле $time и если оно больше нуля - уменьшает его (каждые 100мс)
+        если оно меньше - вызывается функция endGame опускается и объект интервал удаляется
     - вызывается функция рендерБокс
 
     в функции рендерБокс
@@ -19,12 +26,14 @@ $game.addEventListener('click',handleBoxClick)
     - добавляется в поле
 
     на поле повешен обработчик событий
+    - если игра вообще есть - то ретёрн без действий
     - если кликнули в объект у которого box:true - счётчик попадаений score увеличивается
     и запускается функция рендебокс заново
 */
 
 function startGame() {
-    //console.log('game started')
+    // взводим флаг, что игра стартанула
+    isGameStarted = true;
 
     // после нажанитя кнопки старт - кнопка должна пропасть
     $start.classList.add('hide')    // он есть в CSS
@@ -32,9 +41,30 @@ function startGame() {
     // красим поле в белый цвет
     $game.style.backgroundColor = 'white'
 
+
+    var interval = setInterval(function() {
+        var time = parseFloat($time.textContent)
+
+        if (time <= 0) {
+            // end game
+            clearInterval(interval)
+            endGame()
+
+        } else {
+            $time.textContent = (time - 0.1).toFixed(1)
+        }
+    }, 100) // каждые 100 мс
+
     // генерация квадратов
     renderBox()
 }
+
+
+
+function endGame(){
+    isGameStarted = false
+}
+
 
 // функция рандомной генерации квадратов
 function renderBox () {
@@ -62,13 +92,14 @@ function renderBox () {
 
     // помещение в #game (mdn)
     $game.insertAdjacentElement('afterbegin', box)
-
-    // событие на блок
-
 }
 
 // если клиакают по квадрату
 function handleBoxClick(event) {
+    if (!isGameStarted) {
+        return
+    }
+
     // проверка на box (data-box)
     if (event.target.dataset.box) {    
         score++
