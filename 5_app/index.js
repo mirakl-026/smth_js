@@ -136,7 +136,7 @@ function renderBox () {
 
     box.style.height = box.style.width = boxSize + 'px'
     box.style.position = 'absolute' // позиция относительно квадрата в котором сгенерирован
-    box.style.backgroundColor = '#000'
+    box.style.backgroundColor = getRandColor()
 
     box.style.top = getRandom(0, maxTop) + 'px'
     box.style.left = getRandom(0, maxLeft) + 'px'
@@ -145,6 +145,16 @@ function renderBox () {
 
     // помещение в #game (mdn)
     $game.insertAdjacentElement('afterbegin', box)
+}
+
+function getRandColor() {
+    var r = Math.ceil(Math.random() * 255)
+    var g = Math.ceil(Math.random() * 255)
+    var b = Math.ceil(Math.random() * 255)
+
+    // rgb(28, 68, 99)
+    
+    return 'rgb('+r+','+g+','+b+')'    
 }
 
 // если клиакают по квадрату
