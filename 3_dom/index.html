@@ -5,12 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+        }
+
+        .red {
+            background-color: red;
+        }
+
+        .blue {
+            background-color: blue;
+        }
+    </style>
 </head>
 <body>
     <h1>Что такое DOM</h1>
 
     <a href="https://google.com/" target="_blank" title="Click me!">Google</a>
+    <hr>
 
-    <script src="4_attributes.js"></script>
+    <div id="box1" class="box"></div>
+    <div id="box2" class="box blue"></div>
+
+    <script src="5_classes.js"></script>
 </body>
 </html>
