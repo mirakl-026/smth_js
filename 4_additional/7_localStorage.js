@@ -5,38 +5,38 @@
 
 // более современное - localStorage
 
-document.querySelector('button').addEventListener('click',function(event){
+document.querySelector("button").addEventListener("click",function(event){
 
-    var input = document.querySelector('input').value
+    var input = document.querySelector("input").value;
 
     // глобальный объект localStorage
-    localStorage.setItem('headerText', input)
+    localStorage.setItem("headerText", input);
 
     var objectX = {
-        text: 'la-la-la'
-    }
+        text: "la-la-la"
+    };
 
-    localStorage.setItem('objectX', JSON.stringify(objectX))
+    localStorage.setItem("objectX", JSON.stringify(objectX));
 
-})
+});
 
 // при старте приложения будем менять заголовок
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('loaded')
+document.addEventListener("DOMContentLoaded", function() {
+    console.log("loaded");
 
-    var text = localStorage.getItem('headerText')
+    var text = localStorage.getItem("headerText");
 
     // если текст - строка и при удалении пробелов - хоть что-то остаётся
     if (text && text.trim()) {
-        document.querySelector('h1').textContent = text
+        document.querySelector("h1").textContent = text;
     }
 
     var objectXtext
     try {
-        objectXtext = JSON.parse(localStorage.getItem('objectX'))
-        alert(objectXtext.text)
-    } catch(e) {
-        alert('def')
+        objectXtext = JSON.parse(localStorage.getItem("objectX"));
+        alert(objectXtext.text);
+    } 
+    catch(e) {
+        alert("def");
     }
-
-})
+});

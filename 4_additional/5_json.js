@@ -6,14 +6,14 @@ var person = {
     car: {
         model: 'Ford'
     }
-}
+};
 
 // превращение в строку
-console.log(JSON.stringify(person))
+console.log(JSON.stringify(person));
 
 // парсинг в объект
-var str = JSON.stringify(person)
-console.log(JSON.parse(str))
+var str = JSON.stringify(person);
+console.log(JSON.parse(str));
 
-var personFrom = JSON.parse(str)
-console.log(personFrom.name, personFrom.friends)
+var personFrom = JSON.parse(str);
+console.log(personFrom.name, personFrom.friends);

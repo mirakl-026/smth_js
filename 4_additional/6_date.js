@@ -1,10 +1,10 @@
 // работа с датами
 
-var date = new Date()
+var date = new Date();
 
 // mdn date
-date.getDate()  // день
-date.getMonth() // месяц - январь - 0
+date.getDate();  // день
+date.getMonth(); // месяц - январь - 0
 
 // геттеры и сеттеры
 
