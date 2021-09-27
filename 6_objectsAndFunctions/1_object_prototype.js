@@ -6,17 +6,17 @@
 
 // {} быстрое создание объекта
 var car = {
-    name: 'Ford',
+    name: "Ford",
     year: 2015,
     person: {
 
     }
-}    
+};
 
-console.log(typeof car) // object
-console.log(car)
+console.log(typeof car); // object
+console.log(car);
 
-console.log(car.__proto__)
+console.log(car.__proto__);
 /*
     {constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
 constructor: ƒ Object()
@@ -46,8 +46,8 @@ set __proto__: ƒ __proto__()
 //  car.__proto__ === Object.prototype
 //               true
 
-var arr = [1,2]
-console.log(arr.toString())
+var arr = [1,2];
+console.log(arr.toString());
 // [] => Array => Object
 
 

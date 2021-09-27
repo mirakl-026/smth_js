@@ -3,42 +3,42 @@
 
 // var createCounter = function(counterName) {
 //     // создаётся локальная переменная которая видна только тут
-//     var counter = 0
+//     var counter = 0;
 
 //     return function() {
-//         console.log(counterName, ++counter)
+//         console.log(counterName, ++counter);
 //     }
-// }
+// };
 
 // // для каждой функции переменная counter будет собственная
-// var counterA = createCounter('Counter A')
-// var counterB = createCounter('Counter B')
+// var counterA = createCounter("Counter A");
+// var counterB = createCounter("Counter B");
 
 var createCounter = function (counterName) {
-    var counter = 0
+    var counter = 0;
 
     return {
         increment: function () {
-            counter++
+            counter++;
         },
         decrement: function() {
-            counter--
+            counter--;
         },
         getCounter: function () {
-            return counter
+            return counter;
         }
-    }
+    };
 }
 
 
-var counterA = createCounter('Counter A')
-var counterB = createCounter('Counter B')
+var counterA = createCounter("Counter A");
+var counterB = createCounter("Counter B");
 
-counterA.increment()
-counterA.increment()
-counterA.increment()    // A = 3
+counterA.increment();
+counterA.increment();
+counterA.increment();    // A = 3
 
-counterB.decrement()
-counterB.decrement()    // B = -2
+counterB.decrement();
+counterB.decrement();    // B = -2
 
-console.log(typeof counterA)
+console.log(typeof counterA);
