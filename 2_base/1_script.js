@@ -26,3 +26,9 @@ console.log(message);
 
 var messageString2 = 'message 2'
 var messageString3 = "message 3"
+
+// а теперь от себя - пошли нафиг со своими одинарными кавычками и 
+// отсутствием ; - я буду ставить их везде и всегда, потому что МОГУ
+
+var messageString4 = "message 4"; // !!
+var messageString5 = "message 5";

@@ -2,17 +2,17 @@
 
 // стандартный способ
 // function sayHelloTo (name) {
-//     console.log('Привет, ' + name)
+//     console.log("Привет, " + name);
 // }
 
-// sayHelloTo('Елена')
+// sayHelloTo("Елена")
 
 // через переменную
 var sayHelloTo = function (name) {
-    console.log('Привет, ' + name)
+    console.log("Привет, " + name);
 }
 
-sayHelloTo('Игорь')
+sayHelloTo("Игорь");
 // но тогда нельзя вызвать до объявления
 
 // если объявляется function - она доступна всему файлу, и можно вызывать её до объявления
