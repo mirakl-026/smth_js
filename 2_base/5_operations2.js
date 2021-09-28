@@ -16,7 +16,7 @@ console.log("i = i - 1:", i);
 i++;
 console.log("i++ :", i);
 i--;
-console.log("i++ :", i);
+console.log("i-- :", i);
 
 console.log("i++ (in arg):", i++);
 console.log("i-- (in arg):", i--);
@@ -25,7 +25,7 @@ console.log("++i (in arg):", ++i);
 console.log("--i (in arg):", --i);
 
 i += 16;
-console.log("i+= 3:", i);  // same to -, *, /
+console.log("i+= 16:", i);  // same to -, *, /
 
 i %= 5;
 console.log("i %= 5:", i);
