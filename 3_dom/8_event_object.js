@@ -8,7 +8,7 @@ var link = document.querySelector("a");
 for (var i = 0; i < divs.length; i++) {
 
     // на погружение 
-    divs[i].addEventListener("click", function() {
+    divs[i].addEventListener("click", function(event) {
         // console.log(event)
         event.stopPropagation();    // (для блокирвки родительского вызова)
         console.log(this.getAttribute("id"));
