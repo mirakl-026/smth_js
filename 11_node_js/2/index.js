@@ -1,25 +1,19 @@
-// npm вообще красава
+// подключаем Express
+const express = require("express"); // без . и / - значит лезть в node_modules
 
-// инициализация проекта: npm init
+// объект приложения (сервера)
+const app = express();
 
-// зависимости: в package.json записывают зависимости
+// чутка роутинга, чтобы не ловить ошибку
+app.get("/", (requset, response) =>{
+    response.end("Hi there from NodeJS!");
+});
 
-// 1 устанавливаем веб сервер (Express)
-// npm i express (i = install)
-// npm install express --save (--save - нам необходимо сохранить данный пакет, 
-// как зависимость проекта) -> dependencies
-// у самого модуля - свои dependencies и npm их устанавливает
+app.listen(3000, () =>{
+    console.log("Server has started on port 3000...");
+});
 
-// устанавливаем nodemon для режима разработки (dev)
-// npm i nodemon --save-dev -> devDependencies
+// запускаем приложение node index
+// но лучше nodemon
+// - скрипты в package json - start prod
 
-// для того чтобы пользоваться nodemon из консоли - этот пакет
-// надо установить глобально: npm i nodemon -g (для Unix sudo ...)
-// устанавливает nodemon в глобальную область видимости
-
-// если удалить папку node_modules - восстановить можно
-// с помощью команды npm i 
-
-// package-lock - системный файл генерируемый автоматически,
-// используется для ускорения работы npm - отвечает
-// за совместимость версий пакетов, его менять не надо
