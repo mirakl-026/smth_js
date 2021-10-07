@@ -26,6 +26,8 @@ app.listen(3000, () =>{
     console.log("Server has started on port 3000...");
 });
 
+// API key weather 597590e43dfb3e9ec3812492fcb50cb7
+
 // запускаем приложение node index
 // но лучше nodemon
 // - скрипты в package json - start prod

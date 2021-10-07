@@ -26,3 +26,5 @@
 
 // EJS
 
+// Погоду смотрим в OpenWeatherMap - API и ключ
+// 597590e43dfb3e9ec3812492fcb50cb7
