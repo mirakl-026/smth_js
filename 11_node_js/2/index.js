@@ -1,5 +1,6 @@
 // подключаем Express
 const express = require("express"); // без . и / - значит лезть в node_modules
+const weatherRequest = require("./requests/weather.request");
 
 // объект приложения (сервера)
 const app = express();
@@ -18,7 +19,10 @@ app.get("/", (requset, response) =>{
 app.post("/", (req, res) => {
     // console.log(req.body);    // смотрим, что в запросе
     const { city } = req.body;
-    console.log(city);
+
+    // получили город - запрос по API погоды и рендер
+    weatherRequest(city);
+
     res.render('index');
 });
 
