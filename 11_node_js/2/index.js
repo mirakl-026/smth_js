@@ -16,13 +16,14 @@ app.get("/", (requset, response) =>{
     response.render('index');   // при запросе на корневую страницу - рендерим index.ejs
 });
 
-app.post("/", (req, res) => {
+app.post("/", async (req, res) => {
     // console.log(req.body);    // смотрим, что в запросе
     const { city } = req.body;
 
     // получили город - запрос по API погоды и рендер
-    weatherRequest(city);
-
+    const {weather, error} = await weatherRequest(city);
+    console.log("weather: ", weather);
+    console.log("error: ", error);
     res.render('index');
 });
 
@@ -30,7 +31,6 @@ app.listen(3000, () =>{
     console.log("Server has started on port 3000...");
 });
 
-// API key weather 597590e43dfb3e9ec3812492fcb50cb7
 
 // запускаем приложение node index
 // но лучше nodemon
