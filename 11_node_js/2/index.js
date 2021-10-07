@@ -1,6 +1,5 @@
 // подключаем Express
 const express = require("express"); // без . и / - значит лезть в node_modules
-const bodyParser = require("body-parser");
 
 // объект приложения (сервера)
 const app = express();
@@ -9,7 +8,7 @@ app.set('view engine', 'ejs');  // установка шаблонизатора
 
 // подключаем стили (статические файлы)
 app.use(express.static("public"));
-app.use(bodyParser.urlencoded( {extended : true} ));    // для расшифровки rquest body
+app.use(express.urlencoded());
 
 // чутка роутинга, чтобы не ловить ошибку
 app.get("/", (requset, response) =>{
